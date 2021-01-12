@@ -7,14 +7,14 @@ $botman->hears('Hi', function ($bot) {
     $bot->reply('Hello!');
 });
 
-$botman->hears('Hey bro', function ($bot) {
-    $bot->reply('Hello Rt!');
-});
+$botman->hears('.*log in.*',[ChatBotController::class,'startConversationSignUp']);
 
-$botman->hears('.*Log in.*', function ($bot) {
-    $bot->reply('Nice to meet you!');
-});
+$botman->hears('.*sign up.*',[ChatBotController::class,'startConversationSignUp']);
 
-$botman->hears('.*currency.*',[ChatBotController::class,'startConversation']);
+$botman->hears('.*currency.*',[ChatBotController::class,'startConversationCurrency']);
 
 $botman->hears('Start conversation', [ChatBotController::class,'startConversation']);
+
+$botman->hears('call me {name} the {adjective}', function ($bot, $name, $adjective) {
+    $bot->reply('Hello '.$name.'. You truly are '.$adjective);
+});

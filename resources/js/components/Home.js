@@ -1,20 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 
-function Example() {
-    const [value, setValue] = useState('');
-    useEffect(() => {
-        getInfoChat();
-    }, []);
-
-    const getInfoChat = () => {
-        axios.get(`${URL}/${id}`).then(
-            res => {
-
-            }
-        )
-    }
-
+function Home() {
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -28,5 +15,7 @@ function Example() {
         </div>
     );
 }
-export default Example;
-
+export default Home;
+if (document.getElementById('home')) {
+    ReactDOM.render(<Home />, document.getElementById('home'));
+}

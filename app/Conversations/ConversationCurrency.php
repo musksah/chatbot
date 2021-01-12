@@ -7,41 +7,45 @@ use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
+use App\Classes\CurrencyExchange;
 
 class ConversationCurrency extends Conversation
 {
+    private $currency_change;
+
+    public function __construct()
+    {
+        $this->currency_change = new CurrencyExchange();
+    }
     /**
      * First question
      */
-    public function currencyFirst(){
-        $this->ask('Currency? Which currency do you want to convert?', function(Answer $answer) {
+    public function initialQuestionCurrency()
+    {
+        $this->ask('Do you want to exchange currency?', function (Answer $answer) {
             // Save result
-            $this->firstname = $answer->getText();
-
-            $this->say('Nice to meet you '.$this->firstname);
-            $this->askEmail();
+            $this->response_currency = $answer->getText();
+            if (strpos('yes', $this->response_currency) !== false) {
+                $this->currencyPickQuestion();
+            } else {
+                $this->say('That\'s okay.');
+            }
         });
     }
 
-    public function askReason()
+    public function currencyPickQuestion()
     {
-        $question = Question::create("Wich money do you want to convert? USD or EUR?")
-            ->fallback('Unable to ask question')
-            ->callbackId('ask_reason')
-            ->addButtons([
-                Button::create('Tell a joke')->value('joke'),
-                Button::create('Give me a fancy quote')->value('quote'),
-            ]);
-
-
-        return $this->ask($question, function (Answer $answer) {
-            if ($answer->isInteractiveMessageReply()) {
-                if ($answer->getValue() === 'joke') {
-                    $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
-                    $this->say($joke->value->joke);
-                } else {
-                    $this->say(Inspiring::quote());
-                }
+        $this->ask('Which currency do you want to convert? Let me know it like this example: "2000 cop to usd"', function (Answer $answer) {
+            // Save result
+            $currency_changec = new CurrencyExchange();
+            $this->currency_format = $answer->getText();
+            $response = $currency_changec->create($this->currency_format);
+            $value = $response['value'];
+            if ($response['completed']) {
+                $this->say("The result in {$response['to_currency']} is: {$value}");
+            } else {
+                $this->say($value);
+                $this->initialQuestionCurrency();
             }
         });
     }
@@ -51,6 +55,6 @@ class ConversationCurrency extends Conversation
      */
     public function run()
     {
-        $this->askReason();
+        $this->initialQuestionCurrency();
     }
 }
