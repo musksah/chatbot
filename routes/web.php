@@ -24,3 +24,7 @@ Route::get('/spanish', function () {
 Route::match(['get', 'post'], '/botman', [ChatBotController::class,'handle']);
 Route::get('/botman/tinker', [ChatBotController::class,'tinker']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -45,9 +45,8 @@ class ConversationSignUp extends Conversation
             $password = $credentials['password'];
             // Validating input password
             $response_vp = AccountUser::validatePassword($password);
-            $botman_id = $this->bot->getUser()->getId();
             if ($response_vp['ok'] == true) {
-                $user = $account_user->create($email, $password, $botman_id);
+                $user = $account_user->create($email, $password);
                 if($user){
                     return $this->say('Your user account was created and you are logged in.');
                 }else{

@@ -9,14 +9,15 @@ use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 use App\Classes\AccountUser;
 
-class ConversationSignUp extends Conversation
+
+class ConversationLogIn extends Conversation
 {
     /**
      * First question
      */
-    public function initialQuestionSignUp()
+    public function initialQuestionLogIn()
     {
-        $this->ask('To create an account you should give us username and a secure password. Do you agree?', function (Answer $answer) {
+        $this->ask('Do you want to log in?', function (Answer $answer) {
             // Save result
             $this->response_question = $answer->getText();
             if (strpos('yes', $this->response_question) !== false) {
@@ -33,9 +34,11 @@ class ConversationSignUp extends Conversation
     public function questionEmailPassword()
     {
         $this->ask('Type your email and password like this example. Example:"user password"', function (Answer $answer) {
+            $account_user = new AccountUser();
             // Save result
             // $this->say('Fuck you');
             // die;
+            $botman_id = $this->bot->getUser()->getId();
             $this->email_password = $answer->getText();
             $data_response = AccountUser::getUserPasswordFromQuestion(trim($this->email_password));
             if($data_response['ok'] == false){
@@ -45,24 +48,15 @@ class ConversationSignUp extends Conversation
             $email = $credentials['email'];
             $password = $credentials['password'];
             // Validating input email
-            $response_ve = AccountUser::validateEmail($email); 
-            if ($response_ve['ok'] == false) {
-                $this->say($response_ve['message']);
-                return $this->initialQuestionSignUp();
+            $login = $account_user->process_login($credentials, $botman_id);
+            // print_r($login);
+            // die;
+            if($login['ok'] || $login['ok'] == 1){
+                $this->say('User has successfully logged.');
+            }else{
+                $this->say('Invalid credentials.');
             }
-            // Validating input password
-            $response_vp = AccountUser::validatePassword($password);
-            if ($response_vp['ok'] == true) {
-                $user = AccountUser::create($email, $password);
-                if($user){
-                    return $this->say('Your user account was created');
-                }else{
-                    return $this->say('An error occurred in the process');
-                }
-            } else {
-                $this->say($response_vp['message']);
-                return $this->initialQuestionSignUp();
-            }
+            
         });
     }
 
@@ -81,16 +75,18 @@ class ConversationSignUp extends Conversation
                 // print_r('password: '.$this->password);
             } else {
                 $this->say($response['message']);
-                $this->initialQuestionSignUp();
+                $this->initialQuestionLogIn();
             }
         });
     }
+
+    
 
     /**
      * Start the conversation
      */
     public function run()
     {
-        $this->initialQuestionSignUp();
+        $this->initialQuestionLogIn();
     }
 }

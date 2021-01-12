@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Conversations\ConversationAccountBalance;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use BotMan\BotMan\BotManFactory;
@@ -9,6 +10,7 @@ use BotMan\BotMan\Drivers\DriverManager;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use App\Conversations\ExampleConversation;
 use App\Conversations\ConversationCurrency;
+use App\Conversations\ConversationDeposite;
 use App\Conversations\ConversationSignUp;
 use App\Conversations\ConversationLogIn;
 
@@ -68,6 +70,24 @@ class ChatBotController extends Controller
     public static function startConversationLogIn(BotMan $bot)
     {
         $bot->startConversation(new ConversationLogIn());
+    }
+
+    /**
+     * Loaded through routes/botman.php
+     * @param  BotMan $bot
+     */
+    public static function startConversationDeposite(BotMan $bot)
+    {
+        $bot->startConversation(new ConversationDeposite());
+    }
+
+    /**
+     * Loaded through routes/botman.php
+     * @param  BotMan $bot
+     */
+    public static function startConversationAccountBalance(BotMan $bot)
+    {
+        $bot->startConversation(new ConversationAccountBalance());
     }
 
 

@@ -13,6 +13,3 @@ require('./bootstrap');
  */
 
 require('./components/Example');
-require('./components/ChatBot');
-require('./components/SimpleForm');
-require('./components/Home');
