@@ -59,7 +59,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project was created for a coding challenge and It would become an interesting project to implement chatbots in e-commerce, service providers, etc. Here right you can check the application deployed: [Demo live](http://www.sebastian-hr.com)
+This project was created for a coding challenge and It would become an interesting project to implement chatbots in e-commerce, service providers, etc. Right here you can check the application deployed: [Demo live](http://www.sebastian-hr.com)
 
 ### Built With
 
