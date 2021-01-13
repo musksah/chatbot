@@ -58,8 +58,6 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -83,10 +81,8 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Botman](https://botman.io)
 * [Laravel](https://laravel.com)
-
 
 
 <!-- GETTING STARTED -->
@@ -97,7 +93,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+You will need some installations to run the project, the following commands work in the Ubuntu system..
 * npm
   ```sh
   npm install npm@latest -g
