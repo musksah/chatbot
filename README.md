@@ -176,7 +176,7 @@ You will need some installations to run the project, the following commands work
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The bot can understand a specific list of words, these are words for testing it.
+The bot can understand specific list of words, these are words for testing it.
 
 - sign up
 - log in
