@@ -162,8 +162,8 @@ You will need some installations to run the project, the following commands work
   <VirtualHost *:80>
     ServerName yourdomain.tld
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/your-project/public
-    <Directory /var/www/html/your-project>
+    DocumentRoot /var/www/html/chatbot/public
+    <Directory /var/www/html/chatbot>
         AllowOverride All
     </Directory>
     ErrorLog ${APACHE_LOG_DIR}/error.log
