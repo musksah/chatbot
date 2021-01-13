@@ -11,10 +11,10 @@ use BotMan\BotMan\Messages\Incoming\Answer;
 use App\Conversations\ExampleConversation;
 use App\Conversations\ConversationCurrency;
 use App\Conversations\ConversationDeposite;
+use App\Conversations\ConversationHelp;
 use App\Conversations\ConversationSignUp;
 use App\Conversations\ConversationLogIn;
-
-
+use App\Conversations\ConversationWithDraw;
 
 class ChatBotController extends Controller
 {
@@ -88,6 +88,24 @@ class ChatBotController extends Controller
     public static function startConversationAccountBalance(BotMan $bot)
     {
         $bot->startConversation(new ConversationAccountBalance());
+    }
+
+    /**
+     * Loaded through routes/botman.php
+     * @param  BotMan $bot
+     */
+    public static function startConversationWithDraw(BotMan $bot)
+    {
+        $bot->startConversation(new ConversationWithDraw());
+    }
+
+    /**
+     * Loaded through routes/botman.php
+     * @param  BotMan $bot
+     */
+    public static function startConversationHelp(BotMan $bot)
+    {
+        $bot->startConversation(new ConversationHelp());
     }
 
 

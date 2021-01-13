@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to install Botman Chatbot in Laravel? - codechief.org</title>
+    <title>Bankbot - The bot for your bank transactions</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 </head>
 
@@ -16,8 +16,8 @@
 <script>
     var botmanWidget = {
         aboutText: 'Modify by Sebastián Huérfano',
-        title: 'BankBot Assitant',
-        introMessage: "✋ I'm BankBot. How can I help you?"
+        title: 'BankBot Assistant',
+        introMessage: "✋ I'm BankBot. Type \"help\" to know my funcionalities. How can I help you? "
     };
 </script>
 

@@ -48,7 +48,7 @@ class ConversationLogIn extends Conversation
             $email = $credentials['email'];
             $password = $credentials['password'];
             // Validating input email
-            $login = $account_user->process_login($credentials, $botman_id);
+            $login = $account_user->processLogin($credentials, $botman_id);
             // print_r($login);
             // die;
             if($login['ok'] || $login['ok'] == 1){

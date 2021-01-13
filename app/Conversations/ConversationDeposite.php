@@ -2,14 +2,15 @@
 
 namespace App\Conversations;
 
+use App\Models\User;
+use App\Classes\AccountUser;
+use App\Classes\TransactionManage;
+use App\Classes\SavingAccountManage;
 use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
-use App\Classes\AccountUser;
-use App\Classes\SavingAccountManage;
-use App\Models\User;
 
 class ConversationDeposite extends Conversation
 {
@@ -52,6 +53,7 @@ class ConversationDeposite extends Conversation
                 $this->say($value['message']);
             }
             $deposite = SavingAccountManage::deposite($user_id, $this->number);
+            TransactionManage::register($user_id, 1);
             $this->say($deposite['message']);
         });
     }

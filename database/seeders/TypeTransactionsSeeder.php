@@ -16,13 +16,13 @@ class TypeTransactionsSeeder extends Seeder
     public function run()
     {
         TypeTransaction::create([
-            'name'=>'Deposit'
+            'name'=>'Deposite'
         ]);
         TypeTransaction::create([
             'name'=>'Withdraw'
         ]);
         TypeTransaction::create([
-            'name'=>'Show'
+            'name'=>'Account Balance'
         ]);
     }
 }

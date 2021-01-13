@@ -90,7 +90,7 @@ class AccountUser
         }
     }
 
-    public function process_login($credentials, $botman_id)
+    public function processLogin($credentials, $botman_id)
     {
         $email = $credentials['email'];
         $user = User::where('email', $email)->first();
