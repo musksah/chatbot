@@ -94,11 +94,35 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 You will need some installations to run the project, the following commands work in the Ubuntu system..
+* php 7.4
+  ```sh
+  sudo apt update
+  sudo apt install software-properties-common
+  export LANG=C.UTF-8
+  sudo add-apt-repository ppa:ondrej/php
+  sudo apt update
+  sudo apt -y install php7.4
+  sudo apt install php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring    php7.4-opcache php7.4-soap php7.4-zip php7.4-intl -y
+  ```
+* composer
+  ```sh
+  sudo apt-get install curl
+  sudo php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
+  sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+  ``` 
+* git
+  ```sh
+  sudo apt install git
+  ```
 * npm
   ```sh
-  npm install npm@latest -g
+  curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+  sudo apt-get install nodejs
+  chown www-data: -R * && chown www-data: -R .*
   ```
-
+  
 ### Installation
 
 1. Get a free API Key at [https://example.com](https://example.com)
