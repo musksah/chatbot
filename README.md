@@ -70,8 +70,6 @@ This project was created for a coding challenge and It would become an interesti
 <!-- GETTING STARTED -->
 ## Getting Started
 
-.
-
 ### Prerequisites
 
 You will need some installations to run the project, the following commands work in the Ubuntu system.
