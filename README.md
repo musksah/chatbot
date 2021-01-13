@@ -88,12 +88,12 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+.
 
 ### Prerequisites
 
-You will need some installations to run the project, the following commands work in the Ubuntu system..
+You will need some installations to run the project, the following commands work in the Ubuntu system.
+
 * php 7.4
   ```sh
   sudo apt update
@@ -122,38 +122,88 @@ You will need some installations to run the project, the following commands work
   sudo apt-get install nodejs
   chown www-data: -R * && chown www-data: -R .*
   ```
+ * apache
+  ```sh
+  sudo apt install apache2
+  ```
+ * mysql   
+ ```sh
+  sudo apt-get install wget
+  wget https://repo.mysql.com//mysql-apt-config_0.8.12-1_all.deb
+  sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+  sudo apt-get update
+  sudo apt-get install mysql-server
+  sudo systemctl start mysql
+  ```
   
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/musksah/chatbot.git
+   ```
+2. Install composer packages
+   ```sh
+   composer install
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. configure .env
    ```JS
-   const API_KEY = 'ENTER YOUR API';
+   cp .env.example .env
    ```
+5. generate key laravel
+   ```JS
+   php artisan key:generate
+   ```
+6. run migrations
+   ```JS
+   php artisan migrate
+   ```
+7. run seeder
+   ```JS
+   php artisan db:seed --class=TypeTransactionsSeeder
+   ```
+## Deployment
 
-
-
+### local
+* php local serve
+  ```sh
+  php artisan serve
+  ```
+### production
+* apache configuration
+  ```sh
+  nano /etc/apache2/sites-available/000-default.conf
+  
+  <VirtualHost *:80>
+    ServerName yourdomain.tld
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/your-project/public
+    <Directory /var/www/html/your-project>
+        AllowOverride All
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+  </VirtualHost>
+  
+  sudo a2ensite 000-default.conf
+  sudo a2enmod rewrite
+  service apache2 restart
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+The bot can understand a specific list of words, these are words for testing it.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+- sign up
+- log in
+- deposite
+- withdraw
+- account balance
+- exchange currency
 
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
 <!-- LICENSE -->
 ## License
