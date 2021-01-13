@@ -59,7 +59,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project was created for a coding challenge and It would become an interesting project to implement chatbots in e-commerce, services providers, etc. 
+This project was created for a coding challenge and It would become an interesting project to implement chatbots in e-commerce, service providers, etc. Here right you can check an the application deployed: [Demo live](http://www.sebastian-hr.com)
 
 ### Built With
 
@@ -73,7 +73,6 @@ This project was created for a coding challenge and It would become an interesti
 ### Prerequisites
 
 You will need some installations to run the project, the following commands work in the Ubuntu system.
-[Demo live](http://www.sebastian-hr.com)
 
 * php 7.4
   ```sh
