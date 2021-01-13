@@ -24,8 +24,6 @@
   <p align="center">
     A chatbot who can help in your bank transactions. He will work as a useful assistant!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
     <br />
   </p>
 </p>
