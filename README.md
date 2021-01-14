@@ -130,7 +130,11 @@ You will need some installations to run the project, the following commands work
    ```sh
    npm install
    ```
-4. configure .env
+4. Create a database named "chatbot" in mysql
+   ```JS
+   cp .env.example .env
+   ```
+4. copy .env and configure database
    ```JS
    cp .env.example .env
    ```
