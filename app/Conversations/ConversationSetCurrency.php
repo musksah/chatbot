@@ -2,7 +2,6 @@
 
 namespace App\Conversations;
 
-use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
@@ -25,7 +24,7 @@ class ConversationSetCurrency extends Conversation
         $this->ask('Do you want to exchange currency?', function (Answer $answer) {
             // Save result
             $this->response_currency = $answer->getText();
-            if (strpos('yes', $this->response_currency) !== false) {
+            if (strpos('yes', $this->response_currency) !== false || strpos('Yes', $this->response_question) !== false) {
                 $this->currencyPickQuestion();
             } else {
                 $this->say('That\'s okay.');

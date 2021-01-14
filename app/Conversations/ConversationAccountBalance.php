@@ -30,7 +30,7 @@ class ConversationAccountBalance extends Conversation
                 $this->say($islogin['message']);
             } else {
                 $this->response_question = $answer->getText();
-                if (strpos('yes', $this->response_question) !== false) {
+                if (strpos('yes', $this->response_question) !== false || strpos('Yes', $this->response_question) !== false) {
                     $balance = SavingAccountManage::getAccountBalance($user_id);
                     if($balance['ok']){
                         TransactionManage::register($user_id, 3);

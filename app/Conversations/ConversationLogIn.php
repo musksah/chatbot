@@ -20,7 +20,7 @@ class ConversationLogIn extends Conversation
         $this->ask('Do you want to log in?', function (Answer $answer) {
             // Save result
             $this->response_question = $answer->getText();
-            if (strpos('yes', $this->response_question) !== false) {
+            if (strpos('yes', $this->response_question) !== false || strpos('Yes', $this->response_question) !== false) {
                 $this->questionEmailPassword();
             } else {
                 $this->say('That\'s okay.');

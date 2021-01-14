@@ -19,7 +19,7 @@ class ConversationSignUp extends Conversation
         $this->ask('To create an account you should give us username and a secure password. Do you agree?', function (Answer $answer) {
             // Save result
             $this->response_question = $answer->getText();
-            if (strpos('yes', $this->response_question) !== false) {
+            if (strpos('yes', $this->response_question) !== false || strpos('Yes', $this->response_question) !== false) {
                 $this->questionEmailPassword();
             } else {
                 $this->say('That\'s okay.');
