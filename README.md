@@ -59,7 +59,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project was created for a coding challenge and It would become an interesting project to implement chatbots in e-commerce, services providers, etc. 
+This project was created for a coding challenge and It would become an interesting project to implement chatbots in e-commerce, service providers, etc. Right here you can check the application deployed: [Demo live](http://www.sebastian-hr.com)
 
 ### Built With
 
@@ -73,7 +73,6 @@ This project was created for a coding challenge and It would become an interesti
 ### Prerequisites
 
 You will need some installations to run the project, the following commands work in the Ubuntu system.
-[Demo live](http://www.sebastian-hr.com)
 
 * php 7.4
   ```sh
@@ -162,8 +161,8 @@ You will need some installations to run the project, the following commands work
   <VirtualHost *:80>
     ServerName yourdomain.tld
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/your-project/public
-    <Directory /var/www/html/your-project>
+    DocumentRoot /var/www/html/chatbot/public
+    <Directory /var/www/html/chatbot>
         AllowOverride All
     </Directory>
     ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -176,7 +175,7 @@ You will need some installations to run the project, the following commands work
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The bot can understand a specific list of words, these are words for testing it.
+The bot can understand specific list of words, these are words for testing it.
 
 - sign up
 - log in
