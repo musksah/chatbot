@@ -181,19 +181,19 @@ You will need some installations to run the project, the following commands work
 
 The bot can understand specific list of words. These are the words to test it:
 
-* sign up
+** sign up **
 To create an account
-* log in
+** log in **
 To log in with you account
-* deposite
+** deposite **
 To deposite money in you saving account
-* withdraw
+** withdraw **
 To withdraw money in you saving account
-* account balance
+** account balance **
 To kwnow your current account balance
-* exchange currency
+** exchange currency **
 To exchange currencies
-* help
+** help **
 The list of the functionalities of the bot
 
 <!-- LICENSE -->
